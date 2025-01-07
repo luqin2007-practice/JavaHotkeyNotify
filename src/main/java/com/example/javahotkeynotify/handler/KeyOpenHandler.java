@@ -31,6 +31,7 @@ public class KeyOpenHandler extends WindowsEventHandler implements WinUser.LowLe
 
             if (isCtrl && isFn) {
                 HelloApplication.openStage();
+                reset();
             }
         }
 

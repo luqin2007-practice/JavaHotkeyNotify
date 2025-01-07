@@ -1,6 +1,5 @@
 package com.example.javahotkeynotify.handler;
 
-import com.example.javahotkeynotify.database.App;
 import com.example.javahotkeynotify.database.HotKey;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -15,9 +14,9 @@ public class Recorders {
     // 按 Ctrl+Fn 打开
     private final KeyOpenHandler keyOpenHandler = new KeyOpenHandler();
     // 鼠标移动到顶部打开
-    private final MouseOpenHandler mouseOpenHandler = new MouseOpenHandler();
+//    private final MouseOpenHandler mouseOpenHandler = new MouseOpenHandler();
     // 记录活动应用
-    private final AppRecordHandler appRecordHandler = new AppRecordHandler();
+//    private final AppRecor0dHandler appRecordHandler = new AppRecordHandler();
     // 记录快捷键
     private final KeyRecordHandler keyRecordHandler;
 
@@ -25,9 +24,11 @@ public class Recorders {
 
     public Recorders(int maxKeyCount, int maxAppCount) {
         keyRecordHandler = new KeyRecordHandler(maxKeyCount, maxAppCount);
-        appRecordHandler.setCondition(() -> isRunning() && mouseOpenHandler.getEqTimes() == 1);
+//        appRecordHandler.setCondition(() -> isRunning() && mouseOpenHandler.getEqTimes() == 1);
         keyOpenHandler.register();
         keyOpenHandler.handleError("添加启动快捷键监听失败", this);
+//        mouseOpenHandler.register();
+//        mouseOpenHandler.clearError();
     }
 
     /**
@@ -52,18 +53,18 @@ public class Recorders {
      */
     public void stop() {
         if (running) {
-            appRecordHandler.unregister();
-            appRecordHandler.handleError("移除应用记录监听失败", this);
+//            appRecordHandler.unregister();
+//            appRecordHandler.handleError("移除应用记录监听失败", this);
             keyRecordHandler.unregister();
             keyRecordHandler.handleError("移除按键记录监听失败", this);
-            running = appRecordHandler.isRegistered() && keyRecordHandler.isRegistered();
+//            running = appRecordHandler.isRegistered() && keyRecordHandler.isRegistered();
         }
     }
 
     public void exit() {
         stop();
-        mouseOpenHandler.unregister();
-        mouseOpenHandler.clearError();
+//        mouseOpenHandler.unregister();
+//        mouseOpenHandler.clearError();
         keyOpenHandler.unregister();
         keyOpenHandler.clearError();
     }
@@ -80,9 +81,9 @@ public class Recorders {
         return keyRecordHandler.getRecentKeys(proc);
     }
 
-    public App getCurrentApp() {
-        return appRecordHandler.getCurrentApp();
-    }
+//    public App getCurrentApp() {
+//        return appRecordHandler.getCurrentApp();
+//    }
 
     public void handleError(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR, message, ButtonType.OK);
