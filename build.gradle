@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+ext {
+    junitVersion = '5.10.2'
+    jnaVersion = '5.13.0'
+    sqliteVersion = '3.41.2.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0'
+
+    implementation "net.java.dev.jna:jna:$jnaVersion"
+    implementation "net.java.dev.jna:jna-platform:$jnaVersion"
+    implementation "org.xerial:sqlite-jdbc:$sqliteVersion"
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClass = 'com.example.javahotkeynotify.HelloApplication'
+}
+
+javafx {
+    version = '21'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

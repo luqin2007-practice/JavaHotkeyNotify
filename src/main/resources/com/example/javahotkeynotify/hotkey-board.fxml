@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Tooltip?>
+<TabPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+         prefHeight="400.0" prefWidth="600.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="com.example.javahotkeynotify.ui.HotkeyBoardController" onMouseExited="#onMouseExit">
+   <tabs>
+      <Tab fx:id="tApp" text="应用">
+         <tooltip>
+            <Tooltip text="匹配当前进程名" />
+         </tooltip>
+         <ScrollPane hbarPolicy="NEVER" onMouseClicked="#onAppPaneClick">
+            <VBox/>
+         </ScrollPane>
+      </Tab>
+      <Tab fx:id="tProc" text="进程">
+         <tooltip>
+            <Tooltip text="匹配当前进程路径" />
+         </tooltip>
+         <ScrollPane hbarPolicy="NEVER" onMouseClicked="#onProcPaneClick">
+            <VBox/>
+         </ScrollPane>
+      </Tab>
+      <Tab fx:id="tWindow" text="窗口">
+         <tooltip>
+            <Tooltip text="匹配当前进程名和窗口名" />
+         </tooltip>
+         <ScrollPane hbarPolicy="NEVER" onMouseClicked="#onTitlePaneClick">
+            <VBox/>
+         </ScrollPane>
+      </Tab>
+      <Tab fx:id="tAdd" text="+" closable="false"/>
+      <Tab fx:id="tRefresh" text="❀" closable="false" />
+      <Tab fx:id="tListen" text="○" closable="false" />
+<!--      <Tab fx:id="tBan" text="X" closable="false" />-->
+   </tabs>
+</TabPane>
