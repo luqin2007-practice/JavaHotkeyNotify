@@ -1,8 +1,5 @@
 package com.example.javahotkeynotify.util;
 
-import com.sun.jna.platform.DesktopWindow;
-import com.sun.jna.platform.win32.User32;
-import com.sun.jna.platform.win32.WinDef;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 

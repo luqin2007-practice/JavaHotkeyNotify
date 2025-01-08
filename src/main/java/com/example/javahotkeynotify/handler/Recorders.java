@@ -53,11 +53,9 @@ public class Recorders {
      */
     public void stop() {
         if (running) {
-//            appRecordHandler.unregister();
-//            appRecordHandler.handleError("移除应用记录监听失败", this);
             keyRecordHandler.unregister();
             keyRecordHandler.handleError("移除按键记录监听失败", this);
-//            running = appRecordHandler.isRegistered() && keyRecordHandler.isRegistered();
+            running = keyRecordHandler.isRegistered();
         }
     }
 

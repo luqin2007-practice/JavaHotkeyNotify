@@ -29,7 +29,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.stream.Stream;
 
-public class HotkeyBoardController extends TabPane {
+public class HotkeyBoardController {
 
     private static volatile Background KEY_BACKGROUND;
 
@@ -245,7 +245,7 @@ public class HotkeyBoardController extends TabPane {
                     })
                     .distinct()
                     .sorted();
-            Stream<String> fromDB = HelloApplication.database.getAllProgress().stream();
+            Stream<String> fromDB = HelloApplication.database.getAllWindow().stream();
             Stream.concat(fromDB, fromOS)
                     .map(title -> {
                         MenuItem item = new MenuItem(title);

@@ -2,9 +2,6 @@ package com.example.javahotkeynotify.handler;
 
 import com.sun.jna.platform.win32.*;
 
-import java.util.List;
-import java.util.function.BiConsumer;
-
 public abstract class WindowsEventHandler implements WinUser.HOOKPROC {
 
     private static WinDef.HMODULE hmod;

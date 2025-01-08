@@ -7,23 +7,19 @@ public class App implements Predicate<App> {
     /**
      * 进程名
      */
-    private String process;
+    private final String process;
 
     /**
      * 可执行文件路径
      */
-    private String executePath;
+    private final String executePath;
 
     /**
      * 窗口标题
      */
-    private String windowTitle;
+    private final String windowTitle;
 
     public App(String process, String executePath, String windowTitle) {
-        setAppEnvironment(process, executePath, windowTitle);
-    }
-
-    public void setAppEnvironment(String process, String executePath, String windowTitle) {
         this.process = process;
         this.executePath = executePath;
         this.windowTitle = windowTitle;

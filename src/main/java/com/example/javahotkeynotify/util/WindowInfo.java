@@ -11,7 +11,7 @@ import java.nio.file.Paths;
  */
 public class WindowInfo {
 
-    private final String executePath, executeFile, title;
+        private final String executePath, executeFile, title;
 
     public WindowInfo(WinDef.HWND hwnd) {
         this.executePath = WindowUtils.getProcessFilePath(hwnd);
